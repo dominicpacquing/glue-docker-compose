@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+<configuration>
+    <property>
+        <name>fs.s3a.endpoint</name>
+        <value>http://s3:9000</value>
+    </property>
+
+    <property>
+        <name>fs.s3a.connection.maximum</name>
+        <value>500</value>
+        <description>Controls the maximum number of simultaneous connections to S3.</description>
+    </property>
+
+    <property>
+        <name>fs.s3a.connection.ssl.enabled</name>
+        <value>true</value>
+    </property>
+
+    <property>
+        <name>fs.s3a.aws.credentials.provider</name>
+        <value>
+            com.amazonaws.auth.EnvironmentVariableCredentialsProvider,
+            com.amazonaws.auth.profile.ProfileCredentialsProvider
+        </value>
+    </property>
+
+    <property>
+        <name>fs.s3a.path.style.access</name>
+        <value>true</value>
+    </property>
+
+    <property>
+        <name>fs.s3a.fast.upload</name>
+        <value>true</value>
+    </property>
+
+    <property>
+        <name>fs.s3.impl</name>
+        <value>org.apache.hadoop.fs.s3a.S3AFileSystem</value>
+    </property>
+
+    <property>
+        <name>fs.s3a.impl</name>
+        <value>org.apache.hadoop.fs.s3a.S3AFileSystem</value>
+    </property>
+</configuration>
