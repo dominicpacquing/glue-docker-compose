@@ -86,3 +86,8 @@ df_avro = spark_session.read.format("avro").load("s3://sample-bucket/avro")
 df_avro.show()
 
 ```
+
+
+### Infrastructure model
+
+![Infrastructure model](.infragenie/infrastructure_model.png)
