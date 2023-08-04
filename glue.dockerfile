@@ -75,14 +75,14 @@ RUN pip install -r requirements.txt
 
 # Install Glue Spark distribution
 RUN mkdir -p $SPARK_HOME
-RUN curl "https://aws-glue-etl-artifacts.s3.amazonaws.com/glue-3.0/spark-${SPARK_VERSION}-amzn-0-bin-${HADOOP_VERSION}-amzn-3.tgz" \
+RUN curl "https://aws-glue-etl-artifacts.s3.amazonaws.com/glue-${GLUE_VERSION}/spark-${SPARK_VERSION}-amzn-0-bin-${HADOOP_VERSION}-amzn-3.tgz" \
     -o /tmp/glue-${GLUE_VERSION}-spark-${SPARK_VERSION}-amzn-0-bin-${HADOOP_VERSION}-amzn-3.tgz
 RUN tar -xf /tmp/glue-${GLUE_VERSION}-spark-${SPARK_VERSION}-amzn-0-bin-${HADOOP_VERSION}-amzn-3.tgz --strip-components=1 -C $SPARK_HOME
 RUN rm /tmp/glue-${GLUE_VERSION}-spark-${SPARK_VERSION}-amzn-0-bin-${HADOOP_VERSION}-amzn-3.tgz
 
 RUN mkdir -p ${GLUE_HOME}
 RUN git clone https://github.com/awslabs/aws-glue-libs $GLUE_HOME && \
-    cd $GLUE_HOME && git checkout master
+    cd $GLUE_HOME && git checkout glue-${GLUE_VERSION}
 
 RUN mvn -f $GLUE_HOME/pom.xml -DoutputDirectory=$GLUE_HOME/jars dependency:copy-dependencies
 
